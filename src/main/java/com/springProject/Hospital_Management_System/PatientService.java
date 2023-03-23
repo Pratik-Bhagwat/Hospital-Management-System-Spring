@@ -8,13 +8,7 @@ import java.util.List;
 public class PatientService {
     PatientRepository patientRepository = new PatientRepository();
 
-    public String addPatient(Patient patient) {
-        if(patient.getPatientId() < 0) {
-            return "Please enter valid Patient id";
-        }
-        if(patient.getName().equals(null)) {
-            return "Please enter valid Patient name";
-        }
+    public String addPatient(List<Patient> patient) {
         String ans = patientRepository.addPatient(patient);
         return "Patient added Successfully";
     }

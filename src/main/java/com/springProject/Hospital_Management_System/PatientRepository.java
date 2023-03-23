@@ -9,9 +9,13 @@ import java.util.List;
 public class PatientRepository {
     HashMap<Integer,Patient> patientDb = new HashMap<>();
 
-    public String addPatient(Patient patient) {
-        int key = patient.getPatientId();
-        patientDb.put(key,patient);
+    public String addPatient(List<Patient> patient) {
+        for(Patient p: patient) {
+            int key = p.getPatientId();
+            if(key < 0) return "Please enter valid Patient id";
+            if(p.getName().equals(null)) return "Please enter valid Patient name";
+            patientDb.put(key,p);
+        }
         return "Patient added Successfully";
     }
     public List<Patient> getAllPatients() {

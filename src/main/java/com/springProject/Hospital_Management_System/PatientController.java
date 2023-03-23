@@ -10,7 +10,7 @@ public class PatientController {
 
     PatientService patientService = new PatientService();
     @PostMapping("/add")
-    public String addPatient(@RequestBody Patient patient) {
+    public String addPatient(@RequestBody List<Patient> patient) {
         String ans = patientService.addPatient(patient);
         return "Patient added Successfully";
     }
